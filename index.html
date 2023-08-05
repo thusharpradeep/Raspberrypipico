@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Product Sans", Arial, sans-serif;
+        background-color: #131212;
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      h1 {
+        color: #ce1d56;
+        font-size: 70px;
+        margin-bottom: 30px;
+        opacity: 0;
+        animation: fade-down 1s forwards;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 200px;
+        background-color: #000000;
+        border-radius: 25px;
+        box-shadow: 0 14px 24px rgba(0, 0, 0, 0.2);
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: #46ae4b;
+        font-family: "Product Sans", Arial, sans-serif;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 48px;
+        margin: 20px 15px;
+        cursor: pointer;
+        border-radius: 15px;
+        opacity: 0;
+        animation: fadeIn 1s ease-in-out forwards;
+      }
+
+      .btn:hover {
+        background-color: #000000;
+      }
+
+      .temperature,
+      .led-state {
+        font-size: 35px;
+        margin-top: 30px;
+        color: #ce1d56;
+        opacity: 0;
+        animation: fadeIn 1s ease-in-out forwards;
+      }
+
+      .raspberry-logo {
+        margin-bottom: 1px;
+        max-width: 230px;
+        opacity: 0;
+        animation: fade-down 1s forwards;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes fade-down {
+        from {
+          opacity: 0;
+          transform: translateY(-30px) scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      @media screen and (max-width: 600px) {
+        h1 {
+          font-size: 28px;
+          padding-top: 20px;
+          flex-direction: column;
+        }
+
+        .container {
+          padding: 10px;
+        }
+
+        .btn {
+          font-size: 16px;
+        }
+
+        .temperature,
+        .led-state {
+          font-size: 16px;
+          margin-top: 10px;
+        }
+
+        .raspberry-logo {
+          max-width: 80px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img
+        src="https://www.raspberrypi.com/app/uploads/2022/02/COLOUR-Raspberry-Pi-Symbol-Registered.png"
+        alt="raspberry logo"
+        class="raspberry-logo"
+      />
+      <h1>RASPBERRY PI PICO TEST</h1>
+      <form action="./lighton">
+        <input type="submit" class="btn" value="Turn On" />
+      </form>
+      <form action="./lightoff">
+        <input type="submit" class="btn" value="Turn Off" />
+      </form>
+      <p class="temperature">Temp: {temperature}</p>
+      <p class="led-state">LED is {state}</p>
+    </div>
+  </body>
+</html>
